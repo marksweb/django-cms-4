@@ -22,6 +22,12 @@
     # via
     #   -r requirements.in
     #   djangocms-pageadmin
+boto3==1.17.107
+    # via django-storages
+botocore==1.20.107
+    # via
+    #   boto3
+    #   s3transfer
 cffi==1.14.5
     # via cryptography
 click==8.0.1
@@ -79,7 +85,7 @@ django-polymorphic==3.0.0
     # via django-filer
 django-sekizai==2.0.0
     # via django-cms
-django-storages==1.11.1
+django-storages[boto3]==1.11.1
     # via -r requirements.in
 django-treebeard==4.5.1
     # via
@@ -103,6 +109,10 @@ easy-thumbnails==2.7.1
     #   django-filer
 html5lib==1.1
     # via djangocms-text-ckeditor
+jmespath==0.10.0
+    # via
+    #   boto3
+    #   botocore
 pep517==0.10.0
     # via pip-tools
 pillow==8.3.1
@@ -115,16 +125,21 @@ psycopg2==2.8.6
     # via -r requirements.in
 pycparser==2.20
     # via cffi
+python-dateutil==2.8.1
+    # via botocore
 python-dotenv==0.18.0
     # via -r requirements.in
 pytz==2021.1
     # via
     #   -r requirements.in
     #   django
+s3transfer==0.4.2
+    # via boto3
 six==1.16.0
     # via
     #   cryptography
     #   html5lib
+    #   python-dateutil
 sqlparse==0.4.1
     # via
     #   django
@@ -133,6 +148,8 @@ toml==0.10.2
     # via pep517
 unidecode==1.1.2
     # via django-filer
+urllib3==1.26.6
+    # via botocore
 webencodings==0.5.1
     # via html5lib
 werkzeug==2.0.1
