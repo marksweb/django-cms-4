@@ -1,0 +1,24 @@
+cryptography<3.4
+django
+django-anymail[amazon_ses]
+django-apptemplates
+-e git://github.com/django-cms/django-cms.git@release/4.0.x#egg=django-cms
+https://github.com/ojii/django-app-manage/archive/65da18ef234a4e985710c2c0ec760023695b40fe.zip#egg=django-app-manage
+https://github.com/divio/djangocms-text-ckeditor/archive/support/4.0.x.zip
+django-extensions
+django-filer>=1.3
+django-storages
+https://github.com/divio/djangocms-alias/tarball/master#egg=djangocms-alias
+-e git://github.com/divio/djangocms-url-manager.git@0.0.11#egg=djangocms-url-manager
+https://github.com/divio/djangocms-versioning/tarball/master#egg=djangocms-versioning
+-e git://github.com/FidelityInternational/djangocms-pageadmin.git@0.0.14#egg=djangocms-pageadmin
+-e git://github.com/FidelityInternational/djangocms-version-locking.git@0.0.14#egg=djangocms-version-locking
+easy_thumbnails
+psycopg2==2.8.6
+python-dotenv
+pytz
+
+# dev
+django-debug-toolbar
+pip-tools
+Werkzeug

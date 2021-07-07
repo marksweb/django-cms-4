@@ -1,0 +1,89 @@
+version: '3.7'
+
+x-common: &base
+  image: cmsdemo
+  depends_on:
+    - db
+  environment:
+    AWS_ACCESS_KEY_ID:
+    AWS_SECRET_ACCESS_KEY:
+    AWS_SHARED_CREDENTIALS_FILE: '/.aws-credentials'
+
+    DATABASE_ENGINE: 'django.db.backends.postgresql'
+    DATABASE_HOST: 'db'
+    DATABASE_USER: 'docker'
+    DATABASE_PASSWORD: 'docker'
+    DATABASE_NAME: 'docker'
+    DATABASE_PORT: '5432'
+
+    DJANGO_SETTINGS_MODULE: 'project.settings'
+    DEBUG: 'yes'
+    ALLOWED_HOSTS: '*'
+    DEFAULT_HTTP_PROTOCOL: 'http'
+    EMAIL_DEBUG: 'False'
+    EMAIL_INTERNAL: 'True'
+
+    CSRF_COOKIE_SECURE: 'False'
+    SESSION_COOKIE_SECURE: 'False'
+    SECURE_BROWSER_XSS_FILTER: 'False'
+    SECURE_CONTENT_TYPE_NOSNIFF: 'False'
+    SECURE_HSTS_SECONDS: 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS: 'False'
+
+  volumes:
+    - ~/.aws/credentials:/.aws-credentials
+
+services:
+  cmsdemo:
+    image: cmsdemo
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: app
+
+  nginx:
+    image: public.ecr.aws/s1h1q3x3/django-nginx:1.18.0
+    depends_on:
+      - python
+    environment:
+      NGINX_HOST: python
+      MGINX_PORT: 9000
+    ports:
+      - "${HTTP_PORT_2:-8080}:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 15s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+    volumes_from:
+      - python:ro
+
+  python:
+    <<: *base
+    command: ["/usr/local/bin/uwsgi", "--ini", "config/uwsgi/uwsgi.ini"]
+    depends_on:
+      - db
+    ports:
+      - "${HTTP_PORT:-8000}:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000"]
+      interval: 15s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+
+  db:
+    image: kartoza/postgis:12.1
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+      POSTGRES_DB: docker
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data/
+
+volumes:
+  db_data:
+    driver: local

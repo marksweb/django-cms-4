@@ -1,0 +1,17 @@
+# copy this file's contents into .environment and amend as required
+
+export DJANGO_SETTINGS_MODULE="project.settings"
+export CLEAN_PYC="yes"
+
+export DEBUG="yes"
+export DEBUG_TOOLBAR="no"
+export TWO_FACTOR_AUTH_ENFORCED="no"
+export SYSTEM_INDICATOR_ENABLED="yes"
+export ALLOWED_HOSTS="localhost,127.0.0.1"
+
+export DATABASE_ENGINE="django.db.backends.postgresql_psycopg2"
+export DATABASE_HOST="db"
+export DATABASE_PORT="5432"
+export DATABASE_USER="docker"
+export DATABASE_PASSWORD="docker"
+export DATABASE_NAME="docker"

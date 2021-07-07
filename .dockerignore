@@ -1,0 +1,17 @@
+_docker/Dockerfile
+.dockerignore
+docker-compose.yml
+.env
+.environment
+.git
+.idea
+**/__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+**/.DS_Store
+**/.gitignore
+**/node_modules
+**/docs

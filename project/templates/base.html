@@ -1,0 +1,49 @@
+{% load cms_tags static sekizai_tags menu_tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>{% block title_wrapper %}django-cms demo - {% block title %}{% endblock title %}{% endblock title_wrapper %}</title>
+
+        <meta name="description" content="{% block meta_description %}{% endblock meta_description %}">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        {% render_block "css" %}
+
+        {% block scripts %}
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.1/js.cookie.min.js"></script>
+            <script type="text/javascript" src="https://kit.fontawesome.com/c3c34cb042.js" crossorigin="anonymous"></script>
+        {% endblock %}
+
+        {% block head_extras %}{% endblock %}
+
+        {% render_block "head-js" %}
+    </head>
+    <body>
+        {% cms_toolbar %}
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% block pre-header %}{% endblock %}
+        {% block header %}{% endblock header %}
+
+        {% block content-wrapper %}
+
+            {% block content %}{% endblock content %}
+
+        {% endblock content-wrapper %}
+
+        {% block pre-footer %}{% endblock %}
+        {% block footer %}{% endblock footer %}
+
+        {% block footer_scripts %}
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        {% endblock %}
+
+        {% render_block "js" %}
+    </body>
+</html>
