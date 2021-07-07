@@ -46,7 +46,10 @@ LOCAL_NETWORK = env('LOCAL_NETWORK', '127.0.0.0/8')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ikx3n9+1m7@^qe$5n&#k3e6)pl2)#v(9q-3i^!uauszk6dk09p'
+SECRET_KEY = env(
+    'DJANGO_SECRET_KEY',
+    'django-insecure-ikx3n9+1m7@^qe$5n&#k3e6)pl2)#v(9q-3i^!uauszk6dk09p'
+)
 
 ALLOWED_HOSTS = []
 
@@ -79,7 +82,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.staticfiles',
 
-    'anymail',
     'cms',
     'django_extensions',
     'djangocms_alias',

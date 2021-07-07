@@ -22,18 +22,8 @@
     # via
     #   -r requirements.in
     #   djangocms-pageadmin
-boto3==1.17.106
-    # via django-anymail
-botocore==1.20.106
-    # via
-    #   boto3
-    #   s3transfer
-certifi==2021.5.30
-    # via requests
 cffi==1.14.5
     # via cryptography
-chardet==4.0.0
-    # via requests
 click==8.0.1
     # via pip-tools
 cryptography==3.3.2
@@ -43,7 +33,6 @@ dj-database-url==0.5.0
 django==2.2.24
     # via
     #   -r requirements.in
-    #   django-anymail
     #   django-app-manage
     #   django-classy-tags
     #   django-cms
@@ -62,8 +51,6 @@ django==2.2.24
     #   djangocms-version-locking
     #   djangocms-versioning
     #   easy-thumbnails
-django-anymail[amazon_ses]==8.4
-    # via -r requirements.in
 https://github.com/ojii/django-app-manage/archive/65da18ef234a4e985710c2c0ec760023695b40fe.zip#egg=django-app-manage
     # via -r requirements.in
 django-apptemplates==1.5
@@ -116,12 +103,6 @@ easy-thumbnails==2.7.1
     #   django-filer
 html5lib==1.1
     # via djangocms-text-ckeditor
-idna==2.10
-    # via requests
-jmespath==0.10.0
-    # via
-    #   boto3
-    #   botocore
 pep517==0.10.0
     # via pip-tools
 pillow==8.3.1
@@ -134,23 +115,16 @@ psycopg2==2.8.6
     # via -r requirements.in
 pycparser==2.20
     # via cffi
-python-dateutil==2.8.1
-    # via botocore
 python-dotenv==0.18.0
     # via -r requirements.in
 pytz==2021.1
     # via
     #   -r requirements.in
     #   django
-requests==2.25.1
-    # via django-anymail
-s3transfer==0.4.2
-    # via boto3
 six==1.16.0
     # via
     #   cryptography
     #   html5lib
-    #   python-dateutil
 sqlparse==0.4.1
     # via
     #   django
@@ -159,10 +133,6 @@ toml==0.10.2
     # via pep517
 unidecode==1.1.2
     # via django-filer
-urllib3==1.26.6
-    # via
-    #   botocore
-    #   requests
 webencodings==0.5.1
     # via html5lib
 werkzeug==2.0.1

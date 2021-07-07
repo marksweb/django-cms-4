@@ -1,6 +1,5 @@
 cryptography<3.4
 django
-django-anymail[amazon_ses]
 django-apptemplates
 -e git://github.com/django-cms/django-cms.git@release/4.0.x#egg=django-cms
 https://github.com/ojii/django-app-manage/archive/65da18ef234a4e985710c2c0ec760023695b40fe.zip#egg=django-app-manage
