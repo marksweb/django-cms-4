@@ -45,8 +45,6 @@ if settings.DEBUG:
 
 urlpatterns += i18n_patterns(
 
-    path('anymail/', include('anymail.urls')),
-
     path(
         'jsi18n/',
         JavaScriptCatalog.as_view(),
