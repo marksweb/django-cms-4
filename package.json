@@ -1,10 +1,10 @@
 {
-  "name": "cms-playground",
-  "description": "Project for trying out new things around django cms 4 and AWS",
+  "name": "django-cms-4",
+  "description": "Project for trying out new things around django cms 4",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "https://git-codecommit.eu-west-2.amazonaws.com/v1/repos/cms_playground"
+    "url": "https://github.com/marksweb/django-cms-4"
   },
   "keywords": [
     "django",

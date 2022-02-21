@@ -2,9 +2,12 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+from pathlib import Path
 
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv(filename='.environment'))
+from environs import Env
+
+env = Env()
+env.read_env()
 
 
 def main():
@@ -25,6 +28,20 @@ def main():
         cmd = "find '{d}' -name '*.pyc' -delete".format(d=proj or '.')
         os.system(cmd)
         # sys.stdout.write('done\n\n')
+
+    try:
+        import pip_lock
+    except ImportError:
+        raise ImportError(
+            "Couldn't import pip-lock. Are you on the right virtualenv and up "
+            + "to date?"
+        )
+
+    requirements_path = str(Path(__file__).parent / "requirements.txt")
+    pip_lock.check_requirements(
+        requirements_path,
+        post_text="\nRun the following:\n\npip-sync\n",
+    )
 
     execute_from_command_line(sys.argv)
 

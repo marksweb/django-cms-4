@@ -42,7 +42,7 @@ services:
       target: app
 
   nginx:
-    image: public.ecr.aws/s1h1q3x3/django-nginx:1.18.0
+    image: nginx:1.18.0
     depends_on:
       - python
     environment:

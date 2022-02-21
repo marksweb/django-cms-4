@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 
-from .utils.sanitize import sanitize
+from environs import Env
 
 
 def gettext(s):
@@ -21,7 +21,7 @@ def gettext(s):
     return s
 
 
-env = os.environ.get
+env = Env()
 
 # ***** PATHS *****
 
@@ -35,8 +35,8 @@ PROJECT_NAME = 'cms demo'
 RELEASE_NUMBER = __import__('project').VERSION
 VERSION = RELEASE_NUMBER
 
-DEBUG = sanitize(env('DEBUG', 'no'), bool)
-BUILD_ENV = sanitize(env('BUILD_ENV', 'no'), bool)
+DEBUG = env.bool('DEBUG', 'no')
+BUILD_ENV = env.bool('BUILD_ENV', 'no')
 WSGI_APPLICATION = 'project.wsgi.application'
 ROOT_URLCONF = 'project.urls'
 
@@ -55,19 +55,13 @@ ALLOWED_HOSTS = []
 
 REFERRER_POLICY = 'strict-origin'
 
-CSRF_COOKIE_SECURE = sanitize(env('CSRF_COOKIE_SECURE', False), bool)
-SESSION_COOKIE_SECURE = sanitize(env('SESSION_COOKIE_SECURE', False), bool)
+CSRF_COOKIE_SECURE = env.bool('CSRF_COOKIE_SECURE', False)
+SESSION_COOKIE_SECURE = env.bool('SESSION_COOKIE_SECURE', False)
 
-SECURE_BROWSER_XSS_FILTER = sanitize(
-    env('SECURE_BROWSER_XSS_FILTER', False), bool
-)
-SECURE_CONTENT_TYPE_NOSNIFF = sanitize(
-    env('SECURE_CONTENT_TYPE_NOSNIFF', False), bool
-)
-SECURE_HSTS_SECONDS = sanitize(env('SECURE_HSTS_SECONDS', 31536000), int)
-SECURE_HSTS_INCLUDE_SUBDOMAINS = sanitize(
-    env('SECURE_HSTS_INCLUDE_SUBDOMAINS', False), bool
-)
+SECURE_BROWSER_XSS_FILTER = env.bool('SECURE_BROWSER_XSS_FILTER', False)
+SECURE_CONTENT_TYPE_NOSNIFF = env.bool('SECURE_CONTENT_TYPE_NOSNIFF', False)
+SECURE_HSTS_SECONDS = env.int('SECURE_HSTS_SECONDS', 31536000)
+SECURE_HSTS_INCLUDE_SUBDOMAINS = env.bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', False)
 
 # Application definition
 
@@ -294,7 +288,7 @@ CMS_PLACEHOLDER_CONF = {}
 
 # ***** DEBUG TOOLBAR *****
 
-DEBUG_TOOLBAR = DEBUG and env('DEBUG_TOOLBAR', 'no') == 'yes'
+DEBUG_TOOLBAR = DEBUG and env.bool('DEBUG_TOOLBAR', 'no')
 
 if DEBUG_TOOLBAR:
     INTERNAL_IPS = [
