@@ -97,7 +97,7 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
     'djangocms_icon',
-    'djangocms_pageadmin',
+    'djangocms_pageadmin',  # remove this if you'd like the traditional CMS page tree
     'djangocms_text_ckeditor',
     'djangocms_url_manager',
     'djangocms_versioning',
@@ -273,8 +273,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ***** CMS *****
 
-CMS_PAGE_CACHE = False
-CMS_PLUGIN_CACHE = False
+CMS_PAGE_CACHE = True
+CMS_PLUGIN_CACHE = True
 
 CMS_PERMISSION = True
 CMS_TOOLBAR_ANONYMOUS_ON = False

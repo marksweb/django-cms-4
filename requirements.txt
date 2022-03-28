@@ -19,7 +19,7 @@
     #   djangocms-url-manager
     #   djangocms-version-locking
     #   djangocms-versioning
--e git+https://github.com/Aiky30/djangocms-alias.git@feature/django-32-compat#egg=djangocms-alias
+-e git+https://github.com/django-cms/djangocms-alias.git@master#egg=djangocms-alias
     # via -r requirements.in
 -e git+https://github.com/fsbraun/djangocms-frontend.git@master#egg=djangocms-frontend
     # via -r requirements.in
@@ -35,9 +35,9 @@
     # via -r requirements.in
 asgiref==3.5.0
     # via django
-boto3==1.21.21
+boto3==1.21.27
     # via django-storages
-botocore==1.24.21
+botocore==1.24.27
     # via
     #   boto3
     #   s3transfer
@@ -100,7 +100,7 @@ django-storages[boto3]==1.12.3
     # via -r requirements.in
 django-treebeard==4.5.1
     # via djangocms-pageadmin
-djangocms-admin-style==3.0.0
+djangocms-admin-style==3.1.0
     # via -r requirements.in
 djangocms-attributes-field==2.0.0
     # via
@@ -145,15 +145,15 @@ pyparsing==3.0.7
     # via packaging
 python-dateutil==2.8.2
     # via botocore
-python-dotenv==0.19.2
+python-dotenv==0.20.0
     # via
     #   -r requirements.in
     #   environs
-pytz==2021.3
+pytz==2022.1
     # via
     #   -r requirements.in
     #   django
-reportlab==3.6.8
+reportlab==3.6.9
     # via
     #   easy-thumbnails
     #   svglib
