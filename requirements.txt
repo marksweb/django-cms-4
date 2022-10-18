@@ -16,14 +16,13 @@
     #   djangocms-frontend
     #   djangocms-icon
     #   djangocms-pageadmin
+    #   djangocms-text-ckeditor
     #   djangocms-url-manager
     #   djangocms-version-locking
     #   djangocms-versioning
 -e git+https://github.com/django-cms/djangocms-alias.git@master#egg=djangocms-alias
     # via -r requirements.in
--e git+https://github.com/fsbraun/djangocms-frontend.git@master#egg=djangocms-frontend
-    # via -r requirements.in
--e git+https://github.com/FidelityInternational/djangocms-pageadmin.git@1.0.0#egg=djangocms-pageadmin
+-e git+https://github.com/FidelityInternational/djangocms-pageadmin.git@1.4.0#egg=djangocms-pageadmin
     # via -r requirements.in
 -e git+https://github.com/django-cms/djangocms-text-ckeditor.git@support/4.0.x#egg=djangocms-text-ckeditor
     # via
@@ -31,35 +30,41 @@
     #   djangocms-frontend
 -e git+https://github.com/django-cms/djangocms-url-manager.git@master#egg=djangocms-url-manager
     # via -r requirements.in
--e git+https://github.com/FidelityInternational/djangocms-version-locking.git@master#egg=djangocms-version-locking
+-e git+https://github.com/FidelityInternational/djangocms-version-locking.git@1.0.1#egg=djangocms-version-locking
     # via -r requirements.in
-asgiref==3.5.0
+asgiref==3.5.2
     # via django
-boto3==1.21.27
+boto3==1.24.93
     # via django-storages
-botocore==1.24.27
+botocore==1.27.93
     # via
     #   boto3
     #   s3transfer
-cffi==1.15.0
+build==0.8.0
+    # via pip-tools
+cffi==1.15.1
     # via cryptography
-click==8.0.4
+click==8.1.3
     # via pip-tools
 cryptography==3.3.2
     # via -r requirements.in
-cssselect2==0.5.0
+cssselect2==0.7.0
     # via svglib
-django==3.2.12
+django==3.2.16
     # via
     #   -r requirements.in
     #   django-appconf
+    #   django-classy-tags
+    #   django-cms
     #   django-debug-toolbar
     #   django-entangled
     #   django-extensions
     #   django-filer
+    #   django-formtools
     #   django-js-asset
     #   django-parler
     #   django-polymorphic
+    #   django-sekizai
     #   django-select2
     #   django-storages
     #   django-treebeard
@@ -74,116 +79,142 @@ django-appconf==1.0.5
     # via django-select2
 django-apptemplates==1.5
     # via -r requirements.in
-django-debug-toolbar==3.2.4
+django-classy-tags==3.0.1
+    # via
+    #   django-cms
+    #   django-sekizai
+django-debug-toolbar==3.7.0
     # via -r requirements.in
 django-entangled==0.4
     # via djangocms-frontend
-django-extensions==3.1.5
+django-extensions==3.2.1
     # via -r requirements.in
-django-filer==2.1.2
+django-filer==2.2.3
     # via
     #   -r requirements.in
     #   djangocms-frontend
-django-fsm==2.8.0
+django-formtools==2.4
+    # via django-cms
+django-fsm==2.8.1
     # via djangocms-versioning
 django-js-asset==2.0.0
     # via django-mptt
-django-mptt==0.13.4
+django-mptt==0.14.0
     # via django-filer
 django-parler==2.3
     # via djangocms-alias
-django-polymorphic==3.0.0
+django-polymorphic==3.1.0
     # via django-filer
-django-select2==7.10.0
+django-sekizai==4.0.0
+    # via django-cms
+django-select2==7.10.1
     # via djangocms-frontend
-django-storages[boto3]==1.12.3
+django-storages[boto3]==1.13.1
     # via -r requirements.in
-django-treebeard==4.5.1
-    # via djangocms-pageadmin
-djangocms-admin-style==3.1.0
-    # via -r requirements.in
-djangocms-attributes-field==2.0.0
+django-treebeard==4.4
+    # via
+    #   django-cms
+    #   djangocms-attributes-field
+    #   djangocms-pageadmin
+djangocms-admin-style==3.2.0
+    # via
+    #   -r requirements.in
+    #   django-cms
+djangocms-attributes-field==2.1.0
     # via
     #   djangocms-frontend
     #   djangocms-icon
     #   djangocms-url-manager
+djangocms-frontend[djangocms-icon]==1.0.0
+    # via -r requirements.in
 djangocms-icon==2.0.0
     # via djangocms-frontend
 djangocms-versioning @ https://github.com/django-cms/djangocms-versioning/tarball/master
     # via -r requirements.in
-easy-thumbnails==2.8.1
+easy-thumbnails[svg]==2.8.3
     # via
     #   -r requirements.in
     #   django-filer
 environs==9.5.0
     # via -r requirements.in
-jmespath==1.0.0
+html5lib==1.1
+    # via djangocms-text-ckeditor
+jmespath==1.0.1
     # via
     #   boto3
     #   botocore
-lxml==4.8.0
+lxml==4.9.1
     # via svglib
-marshmallow==3.15.0
+markupsafe==2.1.1
+    # via werkzeug
+marshmallow==3.18.0
     # via environs
 packaging==21.3
-    # via marshmallow
-pep517==0.12.0
-    # via pip-tools
-pillow==9.0.1
     # via
+    #   build
+    #   marshmallow
+pep517==0.13.0
+    # via build
+pillow==9.2.0
+    # via
+    #   djangocms-text-ckeditor
     #   easy-thumbnails
     #   reportlab
-pip-lock==2.8.1
+pip-lock==2.9.0
     # via -r requirements.in
-pip-tools==6.5.1
+pip-tools==6.9.0
     # via -r requirements.in
 psycopg2==2.8.6
     # via -r requirements.in
 pycparser==2.21
     # via cffi
-pyparsing==3.0.7
+pyparsing==3.0.9
     # via packaging
 python-dateutil==2.8.2
     # via botocore
-python-dotenv==0.20.0
+python-dotenv==0.21.0
     # via
     #   -r requirements.in
     #   environs
-pytz==2022.1
+pytz==2022.5
     # via
     #   -r requirements.in
     #   django
-reportlab==3.6.9
+reportlab==3.6.11
     # via
     #   easy-thumbnails
     #   svglib
-s3transfer==0.5.2
+s3transfer==0.6.0
     # via boto3
 six==1.16.0
     # via
     #   cryptography
+    #   html5lib
     #   python-dateutil
-sqlparse==0.4.2
+sqlparse==0.4.3
     # via
     #   django
     #   django-debug-toolbar
-svglib==1.2.1
+svglib==1.4.1
     # via easy-thumbnails
-tinycss2==1.1.1
+tinycss2==1.2.1
     # via
     #   cssselect2
     #   svglib
 tomli==2.0.1
-    # via pep517
+    # via
+    #   build
+    #   pep517
 unidecode==1.1.2
     # via django-filer
-urllib3==1.26.9
+urllib3==1.26.12
     # via botocore
 webencodings==0.5.1
     # via
     #   cssselect2
+    #   html5lib
     #   tinycss2
-werkzeug==2.0.3
+werkzeug==2.2.2
     # via -r requirements.in
 wheel==0.37.1
     # via pip-tools

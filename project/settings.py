@@ -85,7 +85,6 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.alert',
     'djangocms_frontend.contrib.badge',
     'djangocms_frontend.contrib.card',
-    'djangocms_frontend.contrib.carousel',
     'djangocms_frontend.contrib.collapse',
     'djangocms_frontend.contrib.content',
     'djangocms_frontend.contrib.grid',
@@ -94,6 +93,7 @@ INSTALLED_APPS = [
     'djangocms_frontend.contrib.link',
     'djangocms_frontend.contrib.listgroup',
     'djangocms_frontend.contrib.media',
+    'djangocms_frontend.contrib.navigation',
     'djangocms_frontend.contrib.tabs',
     'djangocms_frontend.contrib.utilities',
     'djangocms_icon',
@@ -272,7 +272,7 @@ TEMPLATES = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # ***** CMS *****
-
+CMS_CONFIRM_VERSION4 = True
 CMS_PAGE_CACHE = True
 CMS_PLUGIN_CACHE = True
 
