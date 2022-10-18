@@ -13,9 +13,9 @@ It uses [pip-tools](https://github.com/jazzband/pip-tools) to manage requirement
 * djangocms-versioning
 * djangocms-versioning-locking
 
-The django project settings are largely powered by environemtn variables and `manage.py` gets
-loads them for you using [python-dotenv](https://pypi.org/project/python-dotenv/) and there's an example
-file in the project (`.environment-example`)
+The django project settings are largely powered by environment variables and `manage.py` gets
+loads them for you using [environs](https://pypi.org/project/environs/) and there's an example
+file in the project (`.env-example`)
 
 Database defaults to postgres, but all database settings can be set from the environment.
 
